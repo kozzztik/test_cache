@@ -1,0 +1,34 @@
+[
+{
+    "model": "cache_machine.bankclient",
+    "pk": 1111222233334444,
+    "fields": {
+        "password": "pbkdf2_sha256$24000$cLZpB4sZxXVz$4DysvZLWjVzmU8jIA0RnQZzJrQZ1Iq6H00yno06lPqE=",
+        "last_login": null,
+        "is_superuser": false,
+        "full_name": "Spok",
+        "is_active": true,
+        "balance": 170100,
+        "login_fail_count": 0,
+        "is_staff": false,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "cache_machine.bankclient",
+    "pk": 4444333322221111,
+    "fields": {
+        "password": "pbkdf2_sha256$24000$4ekc5Hlrsfsx$MT7fu8GT8/Mh5aQmRlB5DEj8hiEdyE7rzjjt/D4TK1w=",
+        "last_login": null,
+        "is_superuser": false,
+        "full_name": "James Tiberius Kirk",
+        "is_active": true,
+        "balance": 22932371,
+        "login_fail_count": 0,
+        "is_staff": false,
+        "groups": [],
+        "user_permissions": []
+    }
+}
+]
