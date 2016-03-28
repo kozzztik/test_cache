@@ -90,7 +90,7 @@ class BaseClientAction(APIView):
         action = ClientAction(bank_client=request.user, code=self.action_code, value=action_value)
         action.save()
         return Response({'success': True, 'result': return_result, 'account': request.user.pk,
-                         'time': action.time.date().isoformat()})
+                         'date': action.time.date().isoformat(), 'time': action.time.isoformat()})
 
 
 class CheckBalanceView(BaseClientAction):

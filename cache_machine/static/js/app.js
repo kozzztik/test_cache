@@ -4,9 +4,11 @@ var app = angular.module('CacheMachineApp', [
     'ngCookies'
 ])
 
-app.config(function ($stateProvider, $urlRouterProvider, RestangularProvider) {
+app.config(function ($stateProvider, $urlRouterProvider, RestangularProvider, $httpProvider, $cookiesProvider) {
     // For any unmatched url, send to /route1
     $urlRouterProvider.otherwise("/");
+    $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
+    $httpProvider.defaults.xsrfCookieName = 'csrftoken';
     $stateProvider
         .state('index', {
             url: "/",
@@ -45,7 +47,7 @@ app.config(function ($stateProvider, $urlRouterProvider, RestangularProvider) {
         .state('get_money', {
             url: "/get_money",
             templateUrl: "/static/templates/enter_data.html",
-            controller: "GetMoneyCtrl",
+            controller: "InputMoneyCountCtrl",
         })
         .state('get_money_result', {
             url: "/get_money_result",
@@ -53,16 +55,13 @@ app.config(function ($stateProvider, $urlRouterProvider, RestangularProvider) {
             controller: "GetMoneyCtrl",
         })
 
-}).config(function($httpProvider, $cookiesProvider){
-        $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
-        $httpProvider.defaults.xsrfCookieName = 'csrftoken';
-    }
-);
+});
 var error_text = '';
 var error_back_url = '';
 var user_card_number = '';
 var user_name = '';
-var
+var get_money_count = null;
+
 app.controller("ErrorCtrl", ['$scope', 'Restangular', '$q',
 function ($scope, Restangular, $q) {
     $scope.error_text=error_text;
@@ -81,6 +80,5 @@ function ($scope, Restangular, $q, $location) {
         user_name = '';
         $location.path('/');
     })
-
 }
 ]);

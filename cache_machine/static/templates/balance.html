@@ -1,7 +1,11 @@
 <div class="row">
     <div class="col-xs-12 well well-lg">
-        <h3>Баланс</h3>
-        <table class="table">
+        <h3>Отчет</h3>
+        <div ng-if="!loaded" class="center-block text-center">
+            <p></p>
+            <img src="/static/img/loader.gif" ng-if="!loaded">
+        </div>
+        <table class="table" ng-if="loaded">
             <tr>
                 <td>Номер карты</td>
                 <td>{{ card_number }}</td>
@@ -15,7 +19,7 @@
                 <td>{{ balance }}</td>
             </tr>
         </table>
-        <p></p>
+        <div style="height: 20px"></div>
         <a href="#/actions" class="btn btn-primary">Назад</a>
         <a href="#/logout" class="btn btn-primary">Выход</a>
     </div>

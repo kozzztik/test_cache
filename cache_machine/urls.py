@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from .views import BankClientAuthView, BankClientDetailView, CheckBalanceView, GetMoneyView
-from django.views.generic import TemplateView, RedirectView
+from django.views.generic import TemplateView
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
@@ -27,5 +27,3 @@ urlpatterns = [
 ]
 
 urlpatterns += staticfiles_urlpatterns()
-
-urlpatterns += [url(r'^', RedirectView.as_view(url='/'))]
