@@ -1,12 +1,19 @@
 # test_cache
 
+Реализация djangorestframework + angular + twitter bootstrap
+
+Запуск приложения стандартно
+
+pip install -r requipments
 manage.py migrate
 manage.py loaddata fixture.json
 manage.py runserver
 
-�������� ������������ � �������: 
+Можно соответственно в virtualenv.
 
-1111222233334444 ��� 1234
-4444333322221111 ��� 4321
+Тестовые пользователи с картами: 
 
-���������� djangorestframework + angular + twitter bootstrap
+1111222233334444 пин 1234
+4444333322221111 пин 4321
+
+Тесты бекенда прилагаются.
