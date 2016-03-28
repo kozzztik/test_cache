@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+{% load static from staticfiles %}
+<p></p>
+<div class="container content" ng-app="CacheMachineApp">
+    <div class="row">
+        <h2 class="col-xs-12 well well-lg">
+            Банкомат
+        </h2>
+    </div>
+
+    <div ui-view >Loading...</div>
+    <div>
+
+    </div>
+</div>
+{% endblock content %}
+{% block extra_javascript %}
+<script src="{% static 'js/app.js' %}"></script>
+<script src="{% static 'js/credit_card.js' %}"></script>
+<script src="{% static 'js/enter_pin.js' %}"></script>
+<script src="{% static 'js/balance.js' %}"></script>
+<script src="{% static 'js/get_money.js' %}"></script>
+{% endblock extra_javascript %}

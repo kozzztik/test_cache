@@ -36,8 +36,12 @@ class BankClientAuthView(APIView):
         Login
         """
         try:
-            card_number = request.data['card_number']
-            pin = request.data['pin']
+            if request.data:
+                card_number = request.data['card_number']
+                pin = request.data['pin']
+            else:
+                card_number = request.query_params['card_number']
+                pin = request.query_params['pin']
         except KeyError:
             return Response(status=400)
         if not card_number:
@@ -52,9 +56,11 @@ class BankClientAuthView(APIView):
                 user.is_active = False
             user.save()
         else:
+            user.login_fail_count = 0
             user.backend = 'django.contrib.auth.backends.ModelBackend'
             login(request, user)
-        return Response({'success': success, 'card_locked': not user.is_active})
+        user_name = user.full_name if user and success else ''
+        return Response({'success': success, 'card_locked': not user.is_active, 'user_name': user_name})
 
 
 class UserActionException(Exception):
@@ -83,7 +89,8 @@ class BaseClientAction(APIView):
             return Response({'success': False, 'reason': str(e.message)})
         action = ClientAction(bank_client=request.user, code=self.action_code, value=action_value)
         action.save()
-        return Response({'success': True, 'result': return_result, 'account': request.user.pk, 'time': action.time})
+        return Response({'success': True, 'result': return_result, 'account': request.user.pk,
+                         'time': action.time.date().isoformat()})
 
 
 class CheckBalanceView(BaseClientAction):

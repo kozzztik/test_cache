@@ -1,0 +1,32 @@
+<div class="row">
+    <form class="col-xs-12 well well-lg">
+        <div class="form-group">
+            <label class="text-center" for="card_number">{{input_label}}:</label>
+            <div class="form-control" id="card_number" placeholder="{{show_value}}">{{show_value}}</div>
+        </div>
+
+        <div class="btn btn-default" ng-class="{true: 'btn-success', false:''}[valid_number]" ng-click="send_card_number()">ОК</div>
+        <div class="btn btn-default" ng-click="clear_card_number()">Очистить</div>
+        <a class="btn btn-danger" ng-if="show_exit" href="#/logout">Выход</a>
+    </form>
+</div>
+<div class="row">
+    <div class="col-xs-4 btn btn-primary btn-lg" ng-click="press_key(7)">7</div>
+    <div class="col-xs-4 btn btn-primary btn-lg" ng-click="press_key(8)">8</div>
+    <div class="col-xs-4 btn btn-primary btn-lg" ng-click="press_key(9)">9</div>
+</div>
+<div class="row">
+    <div class="col-xs-4 btn btn-primary btn-lg" ng-click="press_key(4)">4</div>
+    <div class="col-xs-4 btn btn-primary btn-lg" ng-click="press_key(5)">5</div>
+    <div class="col-xs-4 btn btn-primary btn-lg" ng-click="press_key(6)">6</div>
+</div>
+<div class="row">
+    <div class="col-xs-4 btn btn-primary btn-lg" ng-click="press_key(1)">1</div>
+    <div class="col-xs-4 btn btn-primary btn-lg" ng-click="press_key(2)">2</div>
+    <div class="col-xs-4 btn btn-primary btn-lg" ng-click="press_key(3)">3</div>
+</div>
+<div class="row">
+    <div class="col-xs-4"></div>
+    <div class="col-xs-4 btn btn-primary btn-lg" ng-click="press_key(0)">0</div>
+    <div class="col-xs-4"></div>
+</div>
